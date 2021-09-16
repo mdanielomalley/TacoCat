@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App Name: A Coding Project by Dan O'Malley</title>
+    <title>TacOcaT: A Coding Project by Dan O'Malley</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,6 +19,8 @@
     
     <script src="https://kit.fontawesome.com/5db21ba9c6.js" crossorigin="anonymous"></script>
 
+    <link rel="stylesheet" href="https://use.typekit.net/ame4njd.css">
+
     <!-- <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/img/apple-touch-icon.png"> -->
     <!-- <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest"> -->
@@ -30,8 +32,8 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-black">
     <div class="container-fluid">
         <img src="/img/LogoIconIsolateNoBackground.png" class="align-content-center justify-content-start" height="40">
-        <a class="navbar-brand" href="#" class="aligh-content-center justify-content-end">
-            APP NAME
+        <a class="navbar-brand logoFont" href="#" class="aligh-content-center justify-content-end">
+            Tacocat
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,19 +42,19 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
                 <li class="nav-item">
-                    <a class="nav-link"  href="index.html">Home</a>
+                    <a class="nav-link logoFontAlt"  href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="app.html">The App</a>
+                    <a class="nav-link logoFontAlt" href="app.html">The App</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="code.html">The Code</a>
+                    <a class="nav-link active logoFontAlt" aria-current="page" href="code.html">The Code</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="#">Git Repo</a>
+                    <a class="nav-link logoFontAlt" target="_blank" href="#">Git Repo</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="#">About</a>
+                    <a class="nav-link logoFontAlt" target="_blank" href="#">About</a>
                 </li>
             </ul>
             <!-- <img src="img/LogoIconIsolateNoBackground.png" alt="Dan O'Malley Logo Icon" height="36"> -->
@@ -62,22 +64,55 @@
 <!-- ================Main Section=============== -->
 <main class="flex-shrink-0">
     <div class="container py-4 px-5 mt-5 mb-2">
-        <h2 class="border-1 border-bottom border-dark p-2">The Code for App Name</h2>
+        <h2 class="border-1 border-bottom border-dark p-2 logoFont">The Code for Tacocat</h2>
         <div class="row row-cols-1 row-cols-lg-2">
             <div class="col-lg-8">
                 <pre class="line-numbers">
                     <code class="language-javascript">
-                        //Call Hello world
-                        function helloWorld() {
-                        alert("hello World");
+                        //Get the string value from the page
+                        function getValue(){
+                            
+                            document.getElementById("alert").classList.add("invisible");
+                        
+                            let userString = document.getElementById("userString").value;
+                        
+                            let revString = reverseString(userString);
+                        
+                            displayString(revString);
+                        
+                        }
+                        
+                        // Reverse the string array
+                        // Logic function
+                        function reverseString(userString){
+                        
+                            let revString = [];
+                            
+                            //reverse a string using a for loop
+                            for (let index = userString.length -1 ; index >= 0; index--) {
+                                revString += userString[index]; 
+                            }
+                        
+                            return revString;
+                        
+                        }
+                        //Display the reverse string array
+                        // View Function
+                        function displayString(revString){
+                                
+                            // write to the page 
+                            document.getElementById("msg").innerHTML = `Your string reversed is: ${revString}`;
+                            // turn on the alert box
+                            document.getElementById("alert").classList.remove("invisible");
+                        
                         }
                     </code>
                 </pre>
             </div>
             <div class="col-lg-4">
-                <h5>Hello World Function</h5>
-                <p>The Code is structured in one function.</p>
-                <p>Hello World is a function that displays an alert with a message of Hello World</p>
+                <h5 class="logoFont">Code for Tacocat</h5>
+                <p class="textFontAlt">The Code is structured in one function.</p>
+                <p class="textFontAlt">Hello World is a function that displays an alert with a message of Hello World</p>
             </div>
         </div>
     </div>

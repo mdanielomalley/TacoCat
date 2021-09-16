@@ -71,3 +71,36 @@ white-space: pre-wrap;
 word-break: break-all;
 word-wrap: break-word;
 }
+
+.logoFont {
+
+    font-family: uppercut-angle,sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.logoFontAlt{
+
+    font-family: hydrophilia-liquid,sans-serif;
+    font-weight: 700;
+    font-style: normal;
+
+}
+
+#msg {
+    word-wrap: break-word;
+    }
+
+.textFont{
+
+    font-family: loos-normal,sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.textFontAlt{
+
+    font-family: loos-normal,sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
