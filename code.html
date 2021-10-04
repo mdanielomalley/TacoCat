@@ -69,50 +69,72 @@
             <div class="col-lg-8">
                 <pre class="line-numbers">
                     <code class="language-javascript">
-                        //Get the string value from the page
-                        function getValue(){
-                            
-                            document.getElementById("alert").classList.add("invisible");
-                        
-                            let userString = document.getElementById("userString").value;
-                        
-                            let revString = reverseString(userString);
-                        
-                            displayString(revString);
-                        
-                        }
-                        
-                        // Reverse the string array
-                        // Logic function
-                        function reverseString(userString){
-                        
-                            let revString = [];
-                            
-                            //reverse a string using a for loop
-                            for (let index = userString.length -1 ; index >= 0; index--) {
-                                revString += userString[index]; 
-                            }
-                        
-                            return revString;
-                        
-                        }
-                        //Display the reverse string array
-                        // View Function
-                        function displayString(revString){
-                                
-                            // write to the page 
-                            document.getElementById("msg").innerHTML = `Your string reversed is: ${revString}`;
-                            // turn on the alert box
-                            document.getElementById("alert").classList.remove("invisible");
-                        
-                        }
+                        //get our user input
+function getValue(){
+
+    //set alert to invisible to start
+    document.getElementById("alert").classList.add("invisible");
+    
+    //Get user string from the page
+    let userString = document.getElementById("userString").value;
+
+    //check for a palindrome
+    let returnObj = checkForPalindrome(userString);
+
+    //Display message to the screen
+    displayMessage(returnObj);
+    
+}
+
+//Check if string is a palindrome
+function checkForPalindrome(userString){
+    
+    //Remove Case sensativity 
+    userString = userString.toLowerCase();
+
+    //Filter out spaces, punctuation, and special characters
+    let regex = /[^a-z0-9]/gi;
+    userString = userString.replace(regex, "");
+
+    let revString = [];
+    let returnObj = {};
+
+     for (let index = userString.length - 1; index >= 0; index--) {
+        revString += userString[index];
+     }
+
+     if(revString == userString){
+        returnObj.msg = "Well Done! You Entered a Palidrome."
+     }
+     else{
+         returnObj.msg = "Sorry, that's not a palindrome."
+     }
+
+     returnObj.reversed = revString;
+
+     return returnObj;
+}
+
+//display a message to the string
+function displayMessage(returnObj){
+
+        document.getElementById("alertHeader").innerHTML = returnObj.msg;
+        document.getElementById("msg").innerHTML = `Your phrase reversed is: ${returnObj.reversed}`
+        document.getElementById("alert").classList.remove("invisible");
+}
                     </code>
                 </pre>
             </div>
             <div class="col-lg-4">
                 <h5 class="logoFont">Code for Tacocat</h5>
-                <p class="textFontAlt">The Code is structured in one function.</p>
-                <p class="textFontAlt">Hello World is a function that displays an alert with a message of Hello World</p>
+                <p class="textFontAlt">The String Reversal Code is contained to one function, 
+                    while two seperate functions get the values from the user and display the outcome respectively.</p>
+                <p class="textFontAlt">We use a decrementing for loop to compare the index of the arrays in the opposite position, 
+                    and if they match up in ever index, we have a palindrome.</p>
+                <p class="textFontAlt">Another important note to mention is that through some regex code (line 25, 26), 
+                    we're able to disregard case sensativity, numbers, and special characters so that only alphabetical values are evaluated.</p>
+                <p class="textFontAlt">If we have a palindrome, a box congratulates the user and displays their submission. 
+                    If they did not submit a palindrome, we show their submission in reverse regardless, but inform them that no palidrome was found. </p>    
             </div>
         </div>
     </div>
